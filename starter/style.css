@@ -1,0 +1,15 @@
+*,::before,::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container, .boolean-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'space Mono', monospace;
+    background: linear-gradient(to right, #b3cde0, #6497b1);
+}
