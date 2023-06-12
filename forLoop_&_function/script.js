@@ -212,12 +212,13 @@ const pizzas = [
 
 let result = pizzasName(pizzas);
 let pizzasPrice = pizzasMoyenne(pizzas);
-
+let formulePizzas = recettePizza("Hawaïenne", pizzas);
+let noDuplicate = element(pizzas)
 
 console.log(pizzasPrice);
 console.log(result);
-
-
+console.log(formulePizzas);
+console.log(noDuplicate)
 
 function pizzasName(arr) {
   let table = [];
@@ -229,11 +230,28 @@ function pizzasName(arr) {
 
 function pizzasMoyenne(arr) {
   let price = 0;
-  let moyenne = 0;
   for (i = 0; i < arr.length; i++) {
     price += arr[i].price;
   }
-  moyenne = price / arr.length;
 
-  return moyenne;
+  return (price / arr.length).toFixed(2);
+}
+
+function recettePizza(name, arr) {
+  let table = [];
+  for (i = 0; i < arr.length; i++) {
+    if (name === arr[i].name) {
+      table.push(arr[i].ingredients);
+    }
+  }
+  return table;
+}
+
+function element(arr){
+    let table= [];
+    for (i=0; i<arr.length;i++){
+        table.push(arr[i].ingredients)
+    }
+    let unique = Array.from(new Set(table));
+    return unique;
 }
