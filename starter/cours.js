@@ -103,23 +103,23 @@ const damso = {
 
 // ----------------------------------------------------
 
-let grandeIMC;
-let faibleIMC;
+// let grandeIMC;
+// let faibleIMC;
 
-function calculIMC(pers){
-    const imc = pers.weight / (pers.Size ** 2);
-    return imc
-}
-myObject.IMC = calculIMC(myObject);
-buffon.IMC = calculIMC(buffon); 
+// function calculIMC(pers){
+//     const imc = pers.weight / (pers.Size ** 2);
+//     return imc
+// }
+// myObject.IMC = calculIMC(myObject);
+// buffon.IMC = calculIMC(buffon); 
 
-if (myObject.IMC > buffon.IMC){
-    faibleIMC = buffon;
-    grandeIMC = myObject;
-} else {
-    faibleIMC = myObject;
-    grandeIMC = buffon;
-}
+// if (myObject.IMC > buffon.IMC){
+//     faibleIMC = buffon;
+//     grandeIMC = myObject;
+// } else {
+//     faibleIMC = myObject;
+//     grandeIMC = buffon;
+// }
 
 // boolean.textContent = `C'est ${grandeIMC.Personne} qui a l'IMC la plus élevée il a ${calculIMC(buffon)}` 
 
@@ -195,8 +195,3 @@ boolean.textContent = `La ville de ${personInSpreadCity.Personne} à un densité
 
 // ---------------------------------------------------
 
-let tableVille = [myObject, buffon, damso];
-
-for (i=0;i<tableVille.length;i++){
-
-}
