@@ -22,26 +22,40 @@
 // }
 
 // --------------------------------------------------------------------------------
-let resultAddition = sum2arg(15, 45);
-let resultSubstraction = substract2arg (resultAddition, 360)
-let finalCalcul = result(resultSubstraction);
 
-console.log(finalCalcul)
+// let resultAddition = sum2arg(15, 45);
+// let resultSubstraction = substract2arg (resultAddition, 360)
+// let finalCalcul = result(resultSubstraction);
 
+// console.log(finalCalcul)
 
-function result(arg){
-    const log = `Le résultat des 2 fonctions précédents est ${arg}`;
-    return log;
-}
+// function result(arg){
+//     const log = `Le résultat des 2 fonctions précédents est ${arg}`;
+//     return log;
+// }
 
-function sum2arg(arg1, arg2){
-    const resultAddition = arg1 + arg2
-    return resultAddition
-}
+// function sum2arg(arg1, arg2){
+//     const resultAddition = arg1 + arg2
+//     return resultAddition
+// }
 
-function substract2arg (arg1, arg2){
-    const resultSubstraction =  arg1 - arg2;
-    return resultSubstraction;
-}
+// function substract2arg (arg1, arg2){
+//     const resultSubstraction =  arg1 - arg2;
+//     return resultSubstraction;
+// }
 
 // ----------------------------------------------------------------------------------
+
+const myNumbers = [4, 6, 13, 3, 9, 12, 11];
+const result = sumElements(myNumbers);
+
+console.log(result);
+
+function sumElements(arr) {
+    let myResult = 0;
+    for(i=0;i<arr.length;i++){
+        if (arr[i]%2===0)
+        myResult += arr[i]
+    }
+    return myResult
+}
