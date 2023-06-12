@@ -22,4 +22,26 @@
 // }
 
 // --------------------------------------------------------------------------------
+let resultAddition = sum2arg(15, 45);
+let resultSubstraction = substract2arg (resultAddition, 360)
+let finalCalcul = result(resultSubstraction);
 
+console.log(finalCalcul)
+
+
+function result(arg){
+    const log = `Le résultat des 2 fonctions précédents est ${arg}`;
+    return log;
+}
+
+function sum2arg(arg1, arg2){
+    const resultAddition = arg1 + arg2
+    return resultAddition
+}
+
+function substract2arg (arg1, arg2){
+    const resultSubstraction =  arg1 - arg2;
+    return resultSubstraction;
+}
+
+// ----------------------------------------------------------------------------------
