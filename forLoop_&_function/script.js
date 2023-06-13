@@ -193,7 +193,13 @@ const pizzas = [
   {
     name: "Montagnarde",
     price: 19,
-    ingredients: ["mozzarella", "reblochon", "gruyère", "oignon", "champignon"],
+    ingredients: [
+      "mozzarella",
+      "reblochon",
+      "gruyère",
+      "oignon",
+      "champignons",
+    ],
     baseTomate: false,
   },
   {
@@ -209,17 +215,9 @@ const pizzas = [
     baseTomate: true,
   },
 ];
-
+// ----------------------------------------------------------------------
+// Exercice 1 Ecrire une fonction qui retourne tout les noms de pizzas
 let result = pizzasName(pizzas);
-let pizzasPrice = pizzasMoyenne(pizzas);
-let formulePizzas = recettePizza("Hawaïenne", pizzas);
-let noDuplicate = element(pizzas)
-
-console.log(pizzasPrice);
-console.log(result);
-console.log(formulePizzas);
-console.log(noDuplicate)
-
 function pizzasName(arr) {
   let table = [];
   for (i = 0; i < arr.length; i++) {
@@ -227,7 +225,10 @@ function pizzasName(arr) {
   }
   return table;
 }
-
+console.log(result);
+// ----------------------------------------------------------------------
+// Exercice 2 Ecrire une fonction qui retourne le prix moyen de toutes les pizzas au centième arondi
+let pizzasPrice = pizzasMoyenne(pizzas);
 function pizzasMoyenne(arr) {
   let price = 0;
   for (i = 0; i < arr.length; i++) {
@@ -236,9 +237,14 @@ function pizzasMoyenne(arr) {
 
   return (price / arr.length).toFixed(2);
 }
+console.log(pizzasPrice);
+// ----------------------------------------------------------------------
+// Exercice 3 Ecrire une fonction qui resortira les ingrediants par rapport au nom saisie
+let formulePizzas = recettePizza("Hawaïenne", pizzas);
 
 function recettePizza(name, arr) {
   let table = [];
+
   for (i = 0; i < arr.length; i++) {
     if (name === arr[i].name) {
       table.push(arr[i].ingredients);
@@ -246,12 +252,100 @@ function recettePizza(name, arr) {
   }
   return table;
 }
+console.log(formulePizzas);
 
-function element(arr){
-    let table= [];
-    for (i=0; i<arr.length;i++){
-        table.push(arr[i].ingredients)
+// let formulePizzas = recettePizza("Hawaïenne", pizzas);
+
+// function recettePizza(name, arr) {
+//   let targetPizza;
+
+//   for (i = 0; i < arr.length; i++) {
+//     if (name === arr[i].name) {
+//       targetPizza = arr[i];
+//       break
+//     }
+//   }
+
+//   let table = [];
+//   if(targetPizza){
+//     table = targetPizza.ingredients
+//   }
+//   return table;
+// }
+
+// console.log(formulePizzas);
+
+// ----------------------------------------------------------------------
+// Exercice 4 Ecrire une fonction qui prend en parametre un tableau de pizza et qui retourne un tableau de tout les éléments, en évitant les éléments dupliqués
+
+let noDuplicate = element(pizzas);
+
+function element(arr) {
+  let unique = [];
+  for (i = 0; i < arr.length; i++) {
+    for (j = 0; j < arr[i].ingredients.length; j++) {
+      unique.push(arr[i].ingredients[j]);
     }
-    let unique = Array.from(new Set(table));
-    return unique;
+  }
+  let tri = [...new Set(unique)];
+
+  return tri;
 }
+console.log(noDuplicate);
+
+// Correction
+
+// getAllIngredients(pizzas);
+
+// function getAllIngredients(tableau) {
+//   let allIngredients = [];
+
+//   for (let i = 0; i < tableau.length; i++) {
+//     const currentPizzas = tableau[i];
+//     for (let j = 0; j < currentPizzas.ingredients.length; j++) {
+//       if (!allIngredients.includes(currentPizzas.ingredients[j])) {
+//         allIngredients.push(currentPizzas.ingredients[j]);
+//       }
+//     }
+//   }
+
+//   return allIngredients;
+// }
+
+// -------------------------------------------------------------------------------
+// Exercice 5 Ecrire une fonction qui prend en parametre un ingredient et un tableau de pizzas, ka fonction retourne un tableau des noms des pizzas qui ont cet ingredient
+
+let nameForIngredient = getNameByIngredients(pizzas, "mozzarella");
+
+function getNameByIngredients(arr, arr1) {
+  let table = [];
+  for (i = 0; i < arr.length; i++) {
+    for (j = 0; j < arr[i].ingredients.length; j++) {
+      if (arr1 === arr[i].ingredients[j]) {
+        table.push(arr[i].name);
+      }
+    }
+  }
+  return table;
+}
+
+console.log(nameForIngredient);
+
+// Correction 
+
+// const resultt = getPizzasByIngredientName(pizzas, 'tomate');
+// console.log(resultt);
+
+// function getPizzasByIngredientName(arr,IngredientName){
+//   let pizzNames = [];
+
+//   for(let i=0;i<arr.length;i++){
+//     const currentPizza = arr[i];
+//     if (currentPizza.ingredients.includes(IngredientName)){
+//       pizzNames.push(currentPizza.name)
+//     }
+//   }
+//   return pizzNames
+// }
+
+// --------------------------------------------------------
