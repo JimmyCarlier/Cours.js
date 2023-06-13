@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IMC</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
- <div class="main-container">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <div class="main-container">
     <div class="main-btn" data-color="red">red</div>
     <div class="main-btn" data-color="green">green</div>
     <div class="main-btn" data-color="blue">blue</div>
@@ -15,7 +15,23 @@
  <div class="second-container">
     <input type="text" class="user">
     <input type="submit" value="envoyer" class="send">
- </div>
-<script src="script.js"></script>
-</body>
+ </div> -->
+    <div class="container">
+      <h1>Calcul <strong>d'IMC</strong></h1>
+      <div class="second-container">
+        <div class="select">
+          <label for="number">Votre taille en centimètres</label>
+          <input type="number" placeholder="indiquez votre taille" class="height"/>
+        </div>
+        <div class="select">
+          <label for="number">Votre poid en kg</label>
+          <input type="number" placeholder="Indiquez votre poid" class="weight"/>
+        </div>
+      </div>
+      <input type="submit" value="Calculer un IMC" class="send"/>
+      <p class="score">0</p>
+      <p class="result">En attente de résultat...</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -41,7 +41,7 @@
 
 // Les booleans
 
-const boolean = document.querySelector('.boolean-container')
+// const boolean = document.querySelector('.boolean-container')
 
 // let myBoolean = true;
 // let myResult = ""

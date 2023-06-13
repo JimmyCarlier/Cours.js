@@ -14,7 +14,8 @@
   }
 
   body{
-    background-color: #2d4059;
+    background-color: rgb(162, 162, 162)
+    ;
   }
   .main-container{
     display: flex;
@@ -34,10 +35,38 @@
   }
 
   .second-container{
-    width: 50%;
-    height: 200px;
-    margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 50px;
+   width: 1000px;
+  }
+  
+    .select{
     display: flex;
+    flex-direction: column;
+    width: 30vw;
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    gap: 30px;
+  }
+
+  .send{
+    width: auto;
+    margin: 0 auto;
+  }
+  p{
+    margin: 0 auto;
+  }
+
+  input{
+    padding: 10px 10px;
+    width: 100%;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.52);
   }

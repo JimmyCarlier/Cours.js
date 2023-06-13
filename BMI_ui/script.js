@@ -30,12 +30,62 @@
 // }
 // ---------------------------------------------------------------------
 
-const firstInput = document.querySelector('input');
-const firstSend  = document.querySelector('.send');
-const mainContainer = document.querySelector(".main-container");
+// const firstInput = document.querySelector('input');
+// const firstSend  = document.querySelector('.send');
+// const mainContainer = document.querySelector(".main-container");
 
-firstSend.addEventListener('click', chooseColor)
+// firstSend.addEventListener('click', chooseColor)
 
-function chooseColor(){
-    mainContainer.style.backgroundColor = firstInput.value
+// function chooseColor(){
+//     mainContainer.style.backgroundColor = firstInput.value
+// }
+// ---------------------------------------------------------------------
+
+const chooseWeight = document.querySelector(".weight");
+const chooseHeight = document.querySelector(".height");
+const calculImc = document.querySelector(".send");
+const score = document.querySelector(".score");
+const result = document.querySelector(".result");
+
+calculImc.addEventListener("click", calculator);
+
+// function calculator(){
+//     score.textContent = 0
+//     score.textContent = chooseWeight.value / ((chooseHeight.value/100) ** 2);
+// }
+
+let myObject = {
+  taille: 0,
+  poid: 0,
+  IMC: 0,
+};
+
+const BMIData = [
+  { name: "Maigreur", color: "midnightblue", range: [0, 18.5] },
+  { name: "Bonne santé", color: "green", range: [18.5, 25] },
+  { name: "Surpoids", color: "lightcoral", range: [25, 30] },
+  { name: "Obésité modérée", color: "orange", range: [30, 35] },
+  { name: "Obésité sévère", color: "crimson", range: [35, 40] },
+  { name: "Obésité morbide", color: "purple", range: 40 },
+];
+
+function calculator() {
+  myObject.taille = chooseHeight.value;
+  myObject.poid = chooseWeight.value;
+  myObject.IMC = myObject.poid / (myObject.taille / 100) ** 2;
+  score.textContent = myObject.IMC.toFixed(2);
+  for (i = 0; i < BMIData.length; i++) {
+    if (
+      myObject.IMC > BMIData[i].range[0] &&
+      myObject.IMC <= BMIData[i].range[1]
+    ) {
+      result.textContent = BMIData[i].name;
+      score.style.color = BMIData[i].color;
+      break;
+    } else if (myObject.IMC > BMIData[i].range) {
+      result.textContent = BMIData[i].name;
+      score.style.color = BMIData[i].color;
+      break;
+    }
+  }
 }
