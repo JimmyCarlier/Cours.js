@@ -14,8 +14,25 @@
   }
 
   body{
-    background-color: rgb(162, 162, 162)
+    background-color: var(--soft-blue)
     ;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    gap: 30px;
+    background-color: var(--grey);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px 20px;
+    border-radius: 10px;
   }
   .main-container{
     display: flex;
@@ -32,6 +49,7 @@
     border-radius: 15px;
     cursor: pointer;
     user-select: none;
+
   }
 
   .second-container{
@@ -40,6 +58,8 @@
    align-items: center;
    gap: 50px;
    width: 1000px;
+   margin-bottom: 50px;
+   margin-top: 50px;
   }
   
     .select{
@@ -47,26 +67,31 @@
     flex-direction: column;
     width: 30vw;
   }
-  .container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    gap: 30px;
-  }
+
 
   .send{
     width: auto;
     margin: 0 auto;
+    cursor: pointer;
+    transform:scale(1);
+    transition: all 0.5s ease-in-out;
+  }
+  .send:hover{
+    transform: scale(1.1);
+    color: green;
   }
   p{
     margin: 0 auto;
+  }
+
+  .score, .result{
+    font-size: 2rem;
   }
 
   input{
     padding: 10px 10px;
     width: 100%;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.52);
+    border: none;
+    border-radius: 15px;
   }
