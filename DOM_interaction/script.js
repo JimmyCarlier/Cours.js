@@ -24,7 +24,7 @@ function getThis() {
 }
 
 // -----------------------------------------------------------
-
+// Exo 3
 const addText = document.querySelector(".btn-3");
 const remove = document.querySelector(".btn-3bis");
 const input = document.querySelector(".input-3");
@@ -46,3 +46,44 @@ function deletee() {
 }
 
 // ----------------------------------------------------------
+// Exo 4
+
+const text1 = document.querySelector(".input-4a");
+const text2 = document.querySelector(".input-4b");
+const valid = document.querySelector(".btn-4");
+const newResult = document.querySelector(".result-4");
+const form = document.querySelector(".form-4");
+
+valid.addEventListener("click", concat);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
+function concat() {
+  const addText = document.createElement("p");
+  addText.classList.add("choose");
+  newResult.appendChild(addText);
+  addText.textContent = text1.value + " " + text2.value;
+}
+
+// ------------------------------------------------------
+// Exo 5
+
+// const range = document.querySelector(".input-5");
+// const resultRange = document.querySelector(".result-5");
+
+// resultRange.addEventListener("input", value);
+
+// function value(event) {
+//   resultRange.innerHTML = event.target.value;
+// }
+
+
+const range = document.querySelector(".input-5");
+const resultRange = document.querySelector(".result-5");
+
+resultRange.innerHTML = range.value;
+
+range.addEventListener('input', (event)=>{
+    resultRange.innerHTML = event.target.value
+})
