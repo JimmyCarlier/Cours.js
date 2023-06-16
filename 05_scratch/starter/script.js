@@ -47,27 +47,37 @@
 // ------------------------------------------------------------------------------
 
 
-const btn = document.querySelector(".btn");
-const container = document.querySelector(".container");
+// const btn = document.querySelector(".btn");
+// const container = document.querySelector(".container");
 
-const mainContainer = document.querySelector(".main-container");
+// const mainContainer = document.querySelector(".main-container");
 
 
-btn.addEventListener("click", youpi);
+// btn.addEventListener("click", youpi);
 
-function youpi(){
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 10; j++) {
-          const newDiv = document.createElement("div");
-          newDiv.classList.add("new-div");
-          mainContainer.appendChild(newDiv);
-          newDiv.style.position = "absolute"
-          newDiv.style.left = `${i*10}vw`
-          newDiv.style.top = `${j*10}vh`
-          newDiv.style.backgroundColor = `rgb(${Math.random()*200},${Math.random()*100},${Math.random()*255}`
-        }
-      }
-}
+
+// function youpi(){
+//     for (i = 0; i < 10; i++) {
+//         for (j = 0; j < 10; j++) {
+//           const newDiv = document.createElement("div");
+//           newDiv.classList.add("new-div");
+//           mainContainer.appendChild(newDiv);
+//           newDiv.style.position = "absolute"
+//           newDiv.style.left = `${i*10}vw`
+//           newDiv.style.top = `${j*10}vh`
+//           newDiv.style.backgroundColor = `rgb(${Math.random()*200},${Math.random()*100},${Math.random()*255}`
+//         }
+//       }
+// }
+// let table = []
+// for(i=0;i<4;i++){
+//   table[i] = []
+//   for(j=0;j<4;j++){
+//     table[i][j]=[]
+//     table[i][j].push(i)
+//     table[i][j].push(j)
+//   }
+// }
 
 // matricePosition = [
 //   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],

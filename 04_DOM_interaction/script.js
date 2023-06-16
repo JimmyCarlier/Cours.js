@@ -6,8 +6,6 @@ allButtons.forEach((element) => {
   element.addEventListener("click", changeColor);
 });
 
-let tableColor = ["red", "green", "blue"];
-
 function changeColor(event) {
   circle.style.backgroundColor = event.target.textContent;
 }
@@ -29,7 +27,6 @@ const addText = document.querySelector(".btn-3");
 const remove = document.querySelector(".btn-3bis");
 const input = document.querySelector(".input-3");
 const result = document.querySelector(".container-3");
-const supp = document.querySelectorAll(".some-text");
 
 addText.addEventListener("click", add);
 remove.addEventListener("click", deletee);
@@ -74,8 +71,8 @@ const resultRange = document.querySelector(".result-5");
 
 range.addEventListener("input", value);
 
-function value(event) {
-  resultRange.textContent = event.target.value;
+function value() {
+  resultRange.textContent = range.value;
 }
 
 // const range = document.querySelector(".input-5");
@@ -100,10 +97,9 @@ const associations = {
   php: "coucou php",
 };
 
-function valu(e) {
+function valu() {
   // resultOfOption.textContent = select.value
-  resultOfOption.textContent = associations[e.currentTarget.value];
-  console.log(e);
+  resultOfOption.textContent = associations[select.value];
 }
 // ----------------------------------------------------------------------
 // exo 7
