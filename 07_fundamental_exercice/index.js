@@ -49,7 +49,7 @@ console.log(gamesByDate(games, 2020));
 
 const gamesMostPopular = (arr) => {
   let tablePopular = [];
-  tablePopular = arr.filter( (e) => {
+  tablePopular = arr.filter((e) => {
     return e.rate >= 8;
   });
 
@@ -61,11 +61,30 @@ console.log(gamesMostPopular(games));
 
 const gamesByConsole = (e, ele) => {
   let tableConsole = [];
+
+  // En ciblant un mot clé
   e.forEach((element) => {
-    element.devices.forEach((secondElement) => {
-      if (secondElement.includes(ele)) tableConsole.push(element);
-    });
+    for (let i = 0; i < element.devices.length; i++) {
+      const res = element.devices[i];
+      console.log(res);
+      if (res.includes(ele)) {
+        tableConsole.push(element.title);
+        break
+      }
+    }
   });
   return tableConsole;
 };
-console.log(gamesByConsole(games, "PC"));
+
+console.log(gamesByConsole(games, "play"));
+
+// const gamesByConsole = (e, ele) => {
+//   let tableConsole = [];
+//   e.forEach((element) => {
+//     element.devices.forEach((secondElement) => {
+//       if (secondElement.includes(ele)) tableConsole.push(element);
+//     });
+//   });
+//   return tableConsole;
+// };
+// console.log(gamesByConsole(games, "PC"));
