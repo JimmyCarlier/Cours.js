@@ -66,7 +66,6 @@ const gamesByConsole = (e, ele) => {
   e.forEach((element) => {
     for (let i = 0; i < element.devices.length; i++) {
       const res = element.devices[i];
-      console.log(res);
       if (res.includes(ele)) {
         tableConsole.push(element.title);
         break
