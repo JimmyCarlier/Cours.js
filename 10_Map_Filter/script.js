@@ -1,11 +1,32 @@
 import movie from "./movie.json" assert { type: "json" };
 
 // a. Logger le premier element du tableau movies
-console.log(movie[1]);
+// console.log(movie[1]);
+
+
+
+
+
+
 // b. Logger l'annee du 4eme element du tableau movies
-console.log(movie[4].year);
+// console.log(movie[4].year);
+
+
+
+
+
+
 // c. Logger le titre du dernier element du tableau movies
-console.log(movie[movie.length - 1].title);
+// console.log(movie[movie.length - 1].title);
+
+
+
+
+
+
+
+
+
 // d. Logger le titre du film qui a la meilleure note
 
 // let result = movie[0];
@@ -16,19 +37,24 @@ console.log(movie[movie.length - 1].title);
 
 // console.log(result.title);
 
-function sortBy() {
-  movie.sort((a, b) => {
-    if (a.rate < b.rate) {
-      return 1;
-    } else if (a.rate > b.rate) {
-      return -1;
-    }
-    return 0;
-  });
-  return movie[0].title;
-}
-let result = sortBy();
-console.log(result);
+// function sortBy() {
+//   movie.sort((a, b) => {
+//     if (a.rate < b.rate) {
+//       return 1;
+//     } else if (a.rate > b.rate) {
+//       return -1;
+//     }
+//     return 0;
+//   });
+//   return movie[0].title;
+// }
+// let result = sortBy();
+// console.log(result);
+
+
+
+
+
 
 // e. Logger le titre du film le plus ancien
 
@@ -46,26 +72,45 @@ console.log(result);
 // let titleYear = yearSort();
 // console.log(titleYear);
 
-let oldestMovie = movie[0];
+// let oldestMovie = movie[0];
 
-movie.forEach((element) => {
-  if (element.year < oldestMovie.year) {
-    oldestMovie = element;
-  }
-});
+// movie.forEach((element) => {
+//   if (element.year < oldestMovie.year) {
+//     oldestMovie = element;
+//   }
+// });
 
-console.log(oldestMovie.title);
+// console.log(oldestMovie.title);
+
+
+
+
+
 
 // f. Logger tous les titres de film qui ont au moins 3 acteurs
 
-let resultActors = [];
+// let resultActors = [];
 
-for (let i = 0; i < movie.length; i++) {
-  if (movie[i].actors.length > 2) {
-    resultActors.push(movie[i]);
-  }
-}
-console.log(resultActors);
+// for (let i = 0; i < movie.length; i++) {
+//   if (movie[i].actors.length > 2) {
+//     resultActors.push(movie[i]);
+//   }
+// }
+// console.log(resultActors);
+
+// let resultActors = movie.filter((myFilter) => myFilter.actors.length > 2);
+// let fly = resultActors.map((obj) => {
+//   return obj.title;
+// });
+
+// console.log(fly);
+
+
+
+
+
+
+
 
 // 1. Ecrire une fonction qui prend en parametre le tableau movies et qui retourne un nouveau tableau de tous les titres de films
 
@@ -80,50 +125,88 @@ console.log(resultActors);
 
 // console.log(allMovie(movie));
 
-let test = movie.map((obj) => {
-  let firstTry = [];
-  firstTry = obj.title;
-  return firstTry;
-});
+// let test = movie.map((obj) => {
+//   let firstTry = [];
+//   firstTry = obj.title;
+//   return firstTry;
+// });
 
-console.log(test);
+// console.log(test);
+
+
+
+
+
+
 
 // 2. Ecrire une fonction qui prend en parametre une annee et un tableau (movies), et qui retourne un nouveau tableau de titres de film de l'annee specifiee
 
-function movieForYear(table, myYear) {
-  let resultOfYear = [];
+// function movieForYear(table, myYear) {
+//   let resultOfYear = [];
 
-  table.forEach((element) => {
-    if (myYear === element.year) {
-      resultOfYear.push(element.title);
-    }
+//   table.forEach((element) => {
+//     if (myYear === element.year) {
+//       resultOfYear.push(element.title);
+//     }
+//   });
+//   return resultOfYear;
+// }
+
+// console.log(movieForYear(movie, 1994));
+
+function test() {
+  let year = 1999;
+
+  let filtreYear = movie.filter((obj) => obj.year === year);
+
+  let filterTitle = filtreYear.map((obj) => {
+    return obj.title;
   });
-  return resultOfYear;
+  return filterTitle;
 }
 
-console.log(movieForYear(movie, 1994));
+console.log(test());
+
+
+
+
+
+
+
 
 // 3. Ecrire une fonction qui prend en parametre un realisateur et un tableau (movies), et qui retourne un nouveau tableau de tous les titres de films de ce realisateur
 
-function movieByReal(real, table) {
-  let resultOfReal = [];
-  table.forEach((element) => {
-    if (real === element.director) {
-      resultOfReal.push(element.title);
-    }
-  });
-  return resultOfReal;
-}
+// function movieByReal(real, table) {
+//   let resultOfReal = [];
+//   table.forEach((element) => {
+//     if (real === element.director) {
+//       resultOfReal.push(element.title);
+//     }
+//   });
+//   return resultOfReal;
+// }
 
-console.log(movieByReal("Quentin Tarantino", movie));
+// console.log(movieByReal("Quentin Tarantino", movie));
 
-let arr = [1, 3, 8, 2, 5];
+// let arr = [1, 3, 8, 2, 5];
 
-let total = 0;
+// let total = 0;
 
-arr.forEach((currentNumber) => {
-  total += currentNumber;
-  return total;
+// arr.forEach((currentNumber) => {
+//   total += currentNumber;
+//   return total;
+// });
+
+// console.log(total);
+
+let name = "Quentin Tarantino";
+
+let result = movie.filter((obj) => {
+  return obj.director.includes(name);
 });
 
-console.log(total);
+console.log(
+  result.map((el) => {
+    return el.title;
+  })
+);
