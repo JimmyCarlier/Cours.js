@@ -154,18 +154,18 @@ import movie from "./movie.json" assert { type: "json" };
 
 // console.log(movieForYear(movie, 1994));
 
-function test() {
-  let year = 1999;
+// function test() {
+//   let year = 1999;
 
-  let filtreYear = movie.filter((obj) => obj.year === year);
+//   let filtreYear = movie.filter((obj) => obj.year === year);
 
-  let filterTitle = filtreYear.map((obj) => {
-    return obj.title;
-  });
-  return filterTitle;
-}
+//   let filterTitle = filtreYear.map((obj) => {
+//     return obj.title;
+//   });
+//   return filterTitle;
+// }
 
-console.log(test());
+// console.log(test());
 
 
 
@@ -199,14 +199,14 @@ console.log(test());
 
 // console.log(total);
 
-let name = "Quentin Tarantino";
+// let name = "Quentin Tarantino";
 
-let result = movie.filter((obj) => {
-  return obj.director.includes(name);
-});
+// let result = movie.filter((obj) => {
+//   return obj.director.includes(name);
+// });
 
-console.log(
-  result.map((el) => {
-    return el.title;
-  })
-);
+// console.log(
+//   result.map((el) => {
+//     return el.title;
+//   })
+// );
