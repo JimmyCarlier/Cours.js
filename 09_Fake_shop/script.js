@@ -20,7 +20,7 @@ async function fetchData() {
     }
 
     data = await response.json();
-    console.log(data);
+    console.log(Math.round(data[0].rating.rate));
     displayData(data);
   } catch (error) {
     errorM.textContent = `${error}`;
@@ -35,9 +35,16 @@ function displayData(data, table = []) {
 
     const card = document.createElement("div");
     card.classList.add("divMy");
+    let rateStars = "";
+    for (i = 0; i < Math.round(element.rating.rate); i++) {
+      rateStars += `<i class="fa-solid fa-star"></i>`;
+    }
+    for (i = 0; i < 5 - Math.round(element.rating.rate); i++) {
+      rateStars += `<i class="fa-regular fa-star"></i>`;
+    }
     card.innerHTML = ` <div class="card p-3 m-1 myDiv">
                 <div class="d-flex flex-row mb-3"><img class="" src="${element.image}" width="70">
-                    <div class="d-flex flex-column ml-2"><div class="custom-margin"><h5>${element.title}</h5><span class="text-black-50">${element.category}</span><div class="ratings mt-1"></div></div></div>
+                    <div class="d-flex flex-column ml-2"><div class="custom-margin"><h5>${element.title}</h5><span class="text-black-50">${element.category}</span><div class="ratings mt-1">${rateStars}</div></div></div>
                 </div>
                 <div class="myClass">${element.description}...</div>
                 <div class="d-flex justify-content-between install mt-3"><h6>${element.price}$</h6><span class="text-primary">View&nbsp;<i class="fa fa-angle-right"></i></span></div>
