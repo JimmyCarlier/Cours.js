@@ -1,7 +1,13 @@
 const errorM = document.querySelector(".errorM");
 const row = document.querySelector(".row");
+const checks = document.querySelectorAll(".btn-check");
+
+checks.forEach((element) => {
+  element.addEventListener("click", myFunction);
+});
 
 fetchData();
+let data;
 
 async function fetchData() {
   try {
@@ -11,7 +17,7 @@ async function fetchData() {
       throw new Error(`Erreur: ${response.status}`);
     }
 
-    const data = await response.json();
+    data = await response.json();
     displayData(data);
     // console.log(data);
   } catch (error) {
@@ -19,23 +25,34 @@ async function fetchData() {
   }
 }
 
-function displayData(data) {
+function displayData(data, table = []) {
   row.textContent = "";
 
   data.forEach((element) => {
+    if (table.length != 0 && !table.includes(element.category)) return;
+
     const card = document.createElement("div");
-    card.innerHTML = `<div class="col-4">
-            <div class="card design-card">
-                <h2>${element.title}</h2>
-                <img src="${element.image}" alt="">
-                <p></p>
-                <div class="row row-cols-2 text-center align-content-center">
-                    <button class="design">View</button>
-                    <p></p>
+    card.classList.add("divMy");
+    card.innerHTML = ` <div class="card p-3 m-1 myDiv">
+                <div class="d-flex flex-row mb-3"><img class="" src="${element.image}" width="70">
+                    <div class="d-flex flex-column ml-2"><div class="custom-margin"><h5>${element.title}</h5><span class="text-black-50">${element.category}</span><div class="ratings mt-1"></div></div></div>
                 </div>
-            </div>
-        </div>`;
+                <div class="myClass">${element.description}...</div>
+                <div class="d-flex justify-content-between install mt-3"><h6>${element.price}$</h6><span class="text-primary">View&nbsp;<i class="fa fa-angle-right"></i></span></div>
+            </div>`;
 
     row.appendChild(card);
   });
+}
+
+function myFunction() {
+  let table = [];
+
+  checks.forEach((element) => {
+    if (element.checked) {
+      table.push(element.value);
+    }
+  });
+
+  displayData(data, table);
 }

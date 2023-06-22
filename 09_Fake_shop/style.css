@@ -26,13 +26,21 @@ body {
   width: 150px !important;
 }
 
-.design {
-  border-radius: 15px;
-  border: none;
-  width: 20%;
-  margin: 10px auto;
+.myDiv{
+  width: 350px;
+  height: 300px;
+  margin-bottom: 100px;
 }
 
-.design-card {
-  text-align: center !important;
+.myGrid{
+  gap: 100px;
+}
+
+.myClass{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.divMy{
+  width: 300px;
 }
