@@ -1,10 +1,12 @@
 const errorM = document.querySelector(".errorM");
 const row = document.querySelector(".row");
 const checks = document.querySelectorAll(".btn-check");
+const triSelect = document.querySelector(".tri-modif");
 
 checks.forEach((element) => {
-  element.addEventListener("click", myFunction);
+  element.addEventListener("change", myFunction);
 });
+triSelect.addEventListener("change", triByOrder);
 
 fetchData();
 let data;
@@ -18,8 +20,8 @@ async function fetchData() {
     }
 
     data = await response.json();
+    console.log(data);
     displayData(data);
-    // console.log(data);
   } catch (error) {
     errorM.textContent = `${error}`;
   }
@@ -55,4 +57,9 @@ function myFunction() {
   });
 
   displayData(data, table);
+}
+
+function triByOrder(e) {
+  if (triSelect.value === 1) e.sort((a, b) => a.price - b.price);
+  if (triSelect.value === 2) e.sort((a, b) => b.price - a.price);
 }
