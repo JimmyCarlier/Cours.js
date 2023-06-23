@@ -6,7 +6,8 @@ const triSelect = document.querySelector(".tri-modif");
 checks.forEach((element) => {
   element.addEventListener("change", myFunction);
 });
-triSelect.addEventListener("change", triByOrder);
+
+triSelect.addEventListener("change", callFunction);
 
 fetchData();
 let data;
@@ -20,15 +21,15 @@ async function fetchData() {
     }
 
     data = await response.json();
-    console.log(Math.round(data[0].rating.rate));
-    displayData(data);
+    displayData();
   } catch (error) {
     errorM.textContent = `${error}`;
   }
 }
 
-function displayData(data, table = []) {
+function displayData(table = []) {
   row.textContent = "";
+  triByOrder();
 
   data.forEach((element) => {
     if (table.length != 0 && !table.includes(element.category)) return;
@@ -43,11 +44,22 @@ function displayData(data, table = []) {
       rateStars += `<i class="fa-regular fa-star"></i>`;
     }
     card.innerHTML = ` <div class="card p-3 m-1 myDiv">
-                <div class="d-flex flex-row mb-3"><img class="" src="${element.image}" width="70">
-                    <div class="d-flex flex-column ml-2"><div class="custom-margin"><h5>${element.title}</h5><span class="text-black-50">${element.category}</span><div class="ratings mt-1">${rateStars}</div></div></div>
+                <div class="d-flex flex-row mb-3"><img class="" src="${
+                  element.image
+                }" width="70">
+                    <div class="d-flex flex-column ml-2"><div class="custom-margin"><h5>${
+                      element.title
+                    }</h5><span class="text-black-50">${
+      element.category
+    }</span><div class="ratings mt-1">${rateStars}</div></div></div>
                 </div>
-                <div class="myClass">${element.description}...</div>
-                <div class="d-flex justify-content-between install mt-3"><h6>${element.price}$</h6><span class="text-primary">View&nbsp;<i class="fa fa-angle-right"></i></span></div>
+                <div class="myClass">${element.description.slice(
+                  0,
+                  120
+                )}...</div>
+                <div class="d-flex justify-content-between install mt-3"><h6>${
+                  element.price
+                }$</h6><span class="text-primary">View&nbsp;<i class="fa fa-angle-right"></i></span></div>
             </div>`;
 
     row.appendChild(card);
@@ -63,10 +75,19 @@ function myFunction() {
     }
   });
 
-  displayData(data, table);
+  displayData(table);
 }
 
-function triByOrder(e) {
-  if (triSelect.value === 1) e.sort((a, b) => a.price - b.price);
-  if (triSelect.value === 2) e.sort((a, b) => b.price - a.price);
+function triByOrder() {
+  if (triSelect.value === "1") data.sort((a, b) => a.price - b.price);
+  if (triSelect.value === "2") data.sort((a, b) => b.price - a.price);
+  if (triSelect.value === "3")
+    data.sort((a, b) => a.rating.rate - b.rating.rate);
+  if (triSelect.value === "4")
+    data.sort((a, b) => b.rating.rate - a.rating.rate);
+}
+
+function callFunction() {
+  triByOrder();
+  displayData();
 }
